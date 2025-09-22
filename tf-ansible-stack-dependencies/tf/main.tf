@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "eu-west-1"
 }
 
 data "aws_ami" "ubuntu" {
@@ -7,7 +7,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-24.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
   }
 
   filter {
@@ -41,7 +41,7 @@ locals {
 }
 
 resource "aws_key_pair" "ssh_key" {
-  key_name   = "demo"
+  key_name   = "ec2"
   public_key = file(var.public_key)
 }
 
